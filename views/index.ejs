@@ -1,0 +1,19 @@
+<html>
+<form action="/proxy/update" method="POST">
+  <input type="text" name="listenPort" value="<%= listenPort %>" placeholder="8000" />
+  →
+  <input type="text" name="target" value="<%= target %>" placeholder="http://localhost:3000" />
+  <input type="submit" value="Update" />
+</form>
+<form action="/proxy/stop" method="POST">
+  <input type="submit" value="Stop" />
+</form>
+<ul>
+  <% for (const recording of recordings) { %>
+  <li>
+    <a href="/recordings/<%= recording %>" target="_blank">/recording/<%= recording %></a>
+  </li>
+  <% } %>
+</ul>
+
+</html>

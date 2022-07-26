@@ -1,0 +1,14 @@
+diff --git a/node_modules/@pollyjs/persister/dist/cjs/pollyjs-persister.js b/node_modules/@pollyjs/persister/dist/cjs/pollyjs-persister.js
+index b5c62be..de21f41 100644
+--- a/node_modules/@pollyjs/persister/dist/cjs/pollyjs-persister.js
++++ b/node_modules/@pollyjs/persister/dist/cjs/pollyjs-persister.js
+@@ -3353,6 +3353,9 @@ class Request {
+       if (typeof request.body === 'string') {
+         this.postData.text = request.body;
+       }
++      if (request.body instanceof Buffer) {
++        this.postData.base64Body = request.body.toString('base64')
++      }
+     }
+ 
+     const contentLength = getFirstHeader(request, 'Content-Length');
