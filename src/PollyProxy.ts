@@ -30,6 +30,9 @@ export class PollyProxy {
                     secure: false,
                     changeOrigin: true,
                     autoRewrite: true,
+                    headers: {
+                        referer: '',
+                    },
                 })
                 .listen(options.listenPort)
                 .on('error', (err, req, res) => {
